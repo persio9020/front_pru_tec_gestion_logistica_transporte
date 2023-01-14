@@ -1,0 +1,18 @@
+<div class="plantilla">
+  <div class="seccion-encabezado">
+    <img src="assets/img/logo.png" style="width: 30%;" />
+    <ng-content select="[seccion-encabezado]"></ng-content>
+  </div>
+  <div class="seccion-contenido">
+    <ng-content select="[seccion-contenido]"></ng-content>
+  </div>
+  <div class="[seccion-pie-pagina]">
+    <nav class="navbar navbar-dark mt-5">
+      <div class="navbar-expand m-auto navbar-text">
+        Prueba tecnica <i class="fa fa-heart"></i>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<br />
