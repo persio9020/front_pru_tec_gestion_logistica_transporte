@@ -1,0 +1,79 @@
+<plantilla>
+  <div seccion-encabezado>
+      <app-navbar-inicio></app-navbar-inicio>
+  </div>
+  <div seccion-contenido>
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="formPuertos">
+      <p-panel>
+        <p-header>
+          Puerto
+        </p-header>
+        <div class="ui-g ui-fluid">
+          <div class="ui-g-12 ui-md-4">
+            <label>Nombre *</label>
+            <input id="nombre" type="text" pInputText formControlName="nombre" maxlength="45">
+          </div>
+          <div class="ui-g-12 ui-md-4">
+            <label>Ubicacion *</label>
+            <input id="ubicacion" type="text" pInputText formControlName="ubicacion" maxlength="100">
+          </div>
+          <div class="ui-g-12 ui-md-4">
+            <label>País *</label>
+            <p-dropdown [options]="paises" placeholder="Seleccione el pais" formControlName="idPais">
+            </p-dropdown>
+          </div>
+        </div>
+        <p-footer>
+          <button pButton type="submit" [disabled]="loading" icon="pi pi-check" label="Guardar"></button>
+        </p-footer>
+      </p-panel>
+      <!--
+      <p>
+        Form: {{ formEdi.value | json }}
+      </p>
+      -->
+      <p-toast position="center" key="msgGuardado" [baseZIndex]="5000">
+        <ng-template let-message pTemplate="message">
+          <div style="text-align: center">
+            <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+            <h3>{{message.detail}}</h3>
+          </div>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-6">
+              <button type="button" pButton (click)="aceptarRegistro()" label="Aceptar"></button>
+            </div>
+          </div>
+        </ng-template>
+      </p-toast>
+    </form>
+
+    <p-table #dt [value]="puertos" [responsive]="true" [paginator]="true" [rows]="10">
+      <ng-template pTemplate="caption">
+        <div class="table-header">
+          Listado de Bodegas
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nombre
+            <p-columnFilter type="text" field="nombre" type="text"></p-columnFilter>
+          </th>
+          <th>Ubicacion
+            <p-columnFilter type="text" field="ubicacion" type="text"></p-columnFilter>
+          </th>
+          <th>País
+            <p-columnFilter type="text" field="pais" type="text"></p-columnFilter>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-puerto>
+        <tr>
+          <td>{{puerto.nombre}}</td>
+          <td>{{puerto.ubicacion}}</td>
+          <td>{{puerto.pais}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+    </div>
+</plantilla>
+

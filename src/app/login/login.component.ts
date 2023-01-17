@@ -47,9 +47,6 @@ export class LoginComponent implements OnInit {
 
     // reset login status
     this.authenticationService.logout();
-
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   // convenience getter for easy access to form fields
@@ -57,6 +54,7 @@ export class LoginComponent implements OnInit {
   get password() { return this.loginForm.get('password'); }
 
   onSubmit() {
+    console.log("Mensaje de ingreso")
     this.submitted = true;
 
     // stop here if form is invalid
@@ -66,11 +64,11 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
     var lUsuario = {
-      nombreUsuario: this.username,
-      password: this.password
+      username: this.username?.value,
+      password: this.password?.value
     };
     this.authenticationService.login(lUsuario).pipe(first()).subscribe({
-      next: data => {this.router.navigate([this.returnUrl + data.url]); },
+      next: data => {this.router.navigate([this.returnUrl + '/datos-basicos-cliente']); },
       error: data =>{
         this.alertService.error(data);
         this.loading = false;

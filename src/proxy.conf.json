@@ -1,0 +1,8 @@
+{
+    "/pru": {
+      "target": "https://84b7-54-205-53-6.ngrok.io",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+    }
+  }
