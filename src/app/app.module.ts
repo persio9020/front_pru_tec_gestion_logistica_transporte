@@ -2,10 +2,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { ErrorInterceptor, JwtInterceptor } from './_helpers';
+//import { ErrorInterceptor, JwtInterceptor } from './_helpers';
 import { CommonModule } from '@angular/common';
 import { PlantillaComponent } from './plantilla/plantilla.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -31,21 +30,38 @@ import { AuthGuard } from './_guards';
 import { AlertService } from './_services/alert.service';
 import { AuthenticationService } from './_services/authentication.service';
 import { AlertComponent } from './_directives';
+import { InicioComponent } from './inicio/inicio.component';
+import { routing } from './app-routing.module';
+import { NavbarInicioComponent } from './navbar-inicio/navbar-inicio.component';
+import { DatosBasicosClienteComponent } from './datos-basicos-cliente/datos-basicos-cliente.component';
+import { TiposProductosComponent } from './tipos-productos/tipos-productos.component';
+import { BodegasComponent } from './bodegas/bodegas.component';
+import { PlanesEntregaTerrestreComponent } from './planes-entrega-terrestre/planes-entrega-terrestre.component';
+import { PlanesEntregaMaritimoComponent } from './planes-entrega-maritimo/planes-entrega-maritimo.component';
+import { ErrorInterceptor, JwtInterceptor } from './_helpers';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PuertoComponent } from './puerto/puerto.component';
 import { RegistreseComponent } from './registrese/registrese.component';
-
-
-@NgModule({
+@NgModule({//https://84b7-54-205-53-6.ngrok.io
   declarations: [
     AppComponent,
     PlantillaComponent,
     LoginComponent,
     NavbarComponent,
     AlertComponent,
+    InicioComponent,
+    NavbarInicioComponent,
+    DatosBasicosClienteComponent,
+    TiposProductosComponent,
+    BodegasComponent,
+    PlanesEntregaTerrestreComponent,
+    PlanesEntregaMaritimoComponent,
+    PuertoComponent,
     RegistreseComponent
   ],
   imports: [
+    routing,
     BrowserModule,
-    AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
@@ -68,7 +84,8 @@ import { RegistreseComponent } from './registrese/registrese.component';
     DropdownModule,
     MessageModule,
     KeyFilterModule,
-    RadioButtonModule
+    RadioButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AuthGuard,
