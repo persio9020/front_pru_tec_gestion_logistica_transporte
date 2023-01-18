@@ -42,7 +42,7 @@ import { ErrorInterceptor, JwtInterceptor } from './_helpers';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PuertoComponent } from './puerto/puerto.component';
 import { RegistreseComponent } from './registrese/registrese.component';
-@NgModule({//https://84b7-54-205-53-6.ngrok.io
+@NgModule({//https://0a76-54-161-82-85.ngrok.io
   declarations: [
     AppComponent,
     PlantillaComponent,
