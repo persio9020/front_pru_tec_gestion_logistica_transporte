@@ -18,9 +18,7 @@ export class JwtInterceptor implements HttpInterceptor {
         if(usuarioActual) {
             var t = JSON.parse(usuarioActual);
         }
-        if (sessionStorage.getItem('usuarioActual') != null) {
-            authReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + t.token) });
-        }
+
         return next.handle(authReq);
     }
 
